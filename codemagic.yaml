@@ -1,0 +1,13 @@
+workflows:
+  default-workflow:
+    name: Build APK
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+    scripts:
+      - name: Create Android folder
+        script: flutter create --platforms=android .
+      - name: Build APK
+        script: flutter build apk --release
+    artifacts:
+      - build/**/outputs/**/*.apk
